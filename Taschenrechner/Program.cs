@@ -12,7 +12,7 @@ namespace Taschenrechner
         {
             string strErsteZahlAlsString = HoleBenutzerEingabe("Bitte gib die erste Zahl ein: ");
             string strZweiteZahlAlsString = HoleBenutzerEingabe("Bitte gib die zweite Zahl ein: ");
-            string strRechenOperator = HoleRechenOperation("Wähle für\n+ = 1 \n- = 2");
+            string strRechenOperator = HoleRechenOperation("Wähle für\n+ = 1 \n- = 2\n* = 3\n/ = 4");
 
             //Wandel Text in Gleitkommazahl
             // TODO: Auslagern in Methode, wenn Struktur umfangreicher geworden ist.
@@ -34,8 +34,13 @@ namespace Taschenrechner
                     break;
 
                 case "3":
+                    dblErgebnis = Multiplizieren(dblZahlEins, dblZahlZwei);
+                    Console.WriteLine("Das Produkt ist: {0}", dblErgebnis);
+                    break;
+
                 case "4":
-                    Console.WriteLine("Diese Funktionen stehen blad zur verfügung");
+                    dblErgebnis = Dividieren(dblZahlEins, dblZahlZwei);
+                    Console.WriteLine("Der Quotient ist: {0}", dblErgebnis);
                     break;
 
 
@@ -76,6 +81,20 @@ namespace Taschenrechner
             double differenz = minuend - subtrahent;
 
             return differenz;
+        }
+
+        static double Multiplizieren(double ersterFaktor, double zweiterFaktor)
+        {
+            double dblProdukt = ersterFaktor * zweiterFaktor;
+
+            return dblProdukt;
+        }
+
+        static double Dividieren(double dividend, double divisor)
+        {
+            double dblQuotient = dividend / divisor;
+
+            return dblQuotient;
         }
     }
 }
