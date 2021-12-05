@@ -8,6 +8,15 @@ namespace Taschenrechner
 {
     class RechnerModel
     {
+        public double dblErgebnis { get; private set; }
+        public string RechenOperator { get; private set; }
+
+        public RechnerModel()
+        {
+            dblErgebnis = 0;
+            RechenOperator = "unbekannt";
+        }
+
         private double Addiere(double ersterSummand, double zweiterSummand)
         {
             double summe = ersterSummand + zweiterSummand;
@@ -36,9 +45,9 @@ namespace Taschenrechner
             return dblQuotient;
         }
 
-        public double Berechne(string strRechenOperator, double ersteZahl, double zweiteZahl)
+        public void Berechne(string strRechenOperator, double ersteZahl, double zweiteZahl)
         {
-            double dblErgebnis = 0;
+            this.RechenOperator = strRechenOperator;
             switch (strRechenOperator)
             {
                 case "1":
@@ -61,7 +70,6 @@ namespace Taschenrechner
                     dblErgebnis = 0;
                     break;
             }
-            return dblErgebnis;
         }
     }
 }
