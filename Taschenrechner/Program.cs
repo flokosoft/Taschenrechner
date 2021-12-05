@@ -18,14 +18,28 @@ namespace Taschenrechner
             string strZahlZwei = Console.ReadLine();
 
             //Wandel Text in Gleitkommazahl
-            double flZahlEins = Convert.ToDouble(strZahlEins);
-            double flZahlZwei = Convert.ToDouble(strZahlZwei);
+            double dblZahlEins = Convert.ToDouble(strZahlEins);
+            double dblZahlZwei = Convert.ToDouble(strZahlZwei);
 
             //Berechnung ausführen 
-            double iSumme = flZahlEins + flZahlZwei;
+            double dblSumme = Addiere(dblZahlEins, dblZahlZwei);
 
-            Console.WriteLine("Das Ergebnis beider Summanden lautet: {0}", iSumme);
-            Console.ReadLine(); 
+
+            //Ausgabe
+            Console.WriteLine("Das Ergebnis beider Summanden lautet: {0}", dblSumme);
+            WartenAufBenutzerEingabe();
+        }
+
+        static double Addiere(double ersterSummand, double zweiterSummand)
+        {
+            double summe = ersterSummand + zweiterSummand;
+            return summe;
+        }
+
+        static void WartenAufBenutzerEingabe() //das ist eine Methode
+        {
+            Console.Write("Zum beenden bitte Return drücken");
+            Console.ReadLine();
         }
     }
 }
