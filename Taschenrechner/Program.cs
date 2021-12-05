@@ -19,37 +19,12 @@ namespace Taschenrechner
             double dblZahlEins = Convert.ToDouble(strErsteZahlAlsString);
             double dblZahlZwei = Convert.ToDouble(strZweiteZahlAlsString);
 
-            double dblErgebnis = 0;
             //Berechnung ausführen 
-            switch (strRechenOperator)
-            {
-                case "1":
-                    dblErgebnis = Addiere(dblZahlEins, dblZahlZwei);
-                    Console.WriteLine("Die Summe ist: {0}", dblErgebnis);
-                    break;
-
-                case "2":
-                    dblErgebnis = Subtrahieren(dblZahlEins, dblZahlZwei);
-                    Console.WriteLine("Die Differenz ist: {0}", dblErgebnis);
-                    break;
-
-                case "3":
-                    dblErgebnis = Multiplizieren(dblZahlEins, dblZahlZwei);
-                    Console.WriteLine("Das Produkt ist: {0}", dblErgebnis);
-                    break;
-
-                case "4":
-                    dblErgebnis = Dividieren(dblZahlEins, dblZahlZwei);
-                    Console.WriteLine("Der Quotient ist: {0}", dblErgebnis);
-                    break;
-
-
-                default:
-                    Console.WriteLine("Ungültige Eingabe!");
-                    break;
-            }
+            RechnerModel model = new RechnerModel();
+            double dblErgebnis = model.Berechne(strRechenOperator, dblZahlEins, dblZahlZwei);
 
             //Ausgabe    
+            GebeWertAus(strRechenOperator, dblErgebnis);
             HoleBenutzerEingabe("Zum beenden bitte Return drücken");
         }
 
@@ -69,32 +44,33 @@ namespace Taschenrechner
             return iOperator;
         }
 
-        static double Addiere(double ersterSummand, double zweiterSummand)
+
+
+        static void GebeWertAus(string RechenOperator, double Ergebnis)
         {
-            double summe = ersterSummand + zweiterSummand;
+            switch (RechenOperator)
+            {
+                case "1":
+                    Console.WriteLine("Die Summe ist: {0}", Ergebnis);
+                    break;
 
-            return summe;
-        }
+                case "2":
+                    Console.WriteLine("Die Differenz ist: {0}", Ergebnis);
+                    break;
 
-        static double Subtrahieren(double minuend, double subtrahent)
-        {
-            double differenz = minuend - subtrahent;
+                case "3":
+                    Console.WriteLine("Das Produkt ist: {0}", Ergebnis);
+                    break;
 
-            return differenz;
-        }
+                case "4":
+                    Console.WriteLine("Der Quotient ist: {0}", Ergebnis);
+                    break;
 
-        static double Multiplizieren(double ersterFaktor, double zweiterFaktor)
-        {
-            double dblProdukt = ersterFaktor * zweiterFaktor;
 
-            return dblProdukt;
-        }
-
-        static double Dividieren(double dividend, double divisor)
-        {
-            double dblQuotient = dividend / divisor;
-
-            return dblQuotient;
+                default:
+                    Console.WriteLine("Ungültige Eingabe!");
+                    break;
+            }
         }
     }
 }
