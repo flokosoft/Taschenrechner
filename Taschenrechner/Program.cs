@@ -18,11 +18,11 @@ namespace Taschenrechner
             string strZahlZwei = Console.ReadLine();
 
             //Wandel Text in Gleitkommazahl
-            float flZahlEins = Convert.ToSingle(strZahlEins);
-            float flZahlZwei = Convert.ToSingle(strZahlZwei);
+            double flZahlEins = Convert.ToDouble(strZahlEins);
+            double flZahlZwei = Convert.ToDouble(strZahlZwei);
 
             //Berechnung ausführen 
-            float iSumme = flZahlEins + flZahlZwei;
+            double iSumme = flZahlEins + flZahlZwei;
 
             Console.WriteLine("Das Ergebnis beider Summanden lautet: {0}", iSumme);
             Console.ReadLine(); 
