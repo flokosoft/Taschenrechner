@@ -10,16 +10,12 @@ namespace Taschenrechner
     {
         static void Main(string[] args)
         {
-            Console.Write("Bitte gib den ersten Summanden ein: ");
-            string strZahlEins = Console.ReadLine();
-
-
-            Console.Write("Bitte gib den zweiten Summanden ein: ");
-            string strZahlZwei = Console.ReadLine();
+            string strSummandEins = HoleSummanden("Bitte gib den ersten Summanden ein: ");
+            string strSummandZwei = HoleSummanden("Bitte gib den zweiten Summanden ein: ");
 
             //Wandel Text in Gleitkommazahl
-            double dblZahlEins = Convert.ToDouble(strZahlEins);
-            double dblZahlZwei = Convert.ToDouble(strZahlZwei);
+            double dblZahlEins = Convert.ToDouble(strSummandEins);
+            double dblZahlZwei = Convert.ToDouble(strSummandZwei);
 
             //Berechnung ausführen 
             double dblSumme = Addiere(dblZahlEins, dblZahlZwei);
@@ -30,9 +26,18 @@ namespace Taschenrechner
             WartenAufBenutzerEingabe();
         }
 
+        static string HoleSummanden(string ausgabeText)
+        {
+            Console.Write(ausgabeText);
+            string strSummand = Console.ReadLine();
+
+            return strSummand;
+        }
+
         static double Addiere(double ersterSummand, double zweiterSummand)
         {
             double summe = ersterSummand + zweiterSummand;
+
             return summe;
         }
 
