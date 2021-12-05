@@ -1,14 +1,32 @@
 User Story Vorlage: Als <Rolle/ Anwendertyp> möchte ich <Ziel/ Wunsch/ Funktion>, um <Nutzen>
 
+Titel: Softwarestruktur
+Story: Als Entwickler möcht eich den Quellcode sauber strukturieren, um später einfach weitere Funkionalitäten hinzufügen zu können
+Akzeptanzkriterien:
+	- Das Single Level of Abstraction Prinzip wird eingehalten, oder eine Abweichung ist begründet und dokumentiert
+Status:
+	- offen
+
+---
+
+Titel: Subtrahieren
+Story: Als Benutzer möchte ich zwei Zahlen eingeben, um deren Differenz berechnen zu lassen
+Akzeptanzkriterien:
+	- GleitkommazZahlen zwischen -10.0 und 100.00 können subtraghiert werden
+Status:
+
+---
+
 Titel: Addieren
 Story: Als Benutzer möchte ich zwei Zahlen eingeben, um deren Summe berechnen zu lassen
 Akzeptanzkriterien:
-	- Zahlen zwischen 0 und 10 können addiert werden
+	- Gleitkommazahlen zwischen -10.0 und 100.0 können addiert werden
 Status:
 	- Implementiert
 	- getestet
 	- erledigt
 	
+---
 
 Titel:  Starten
 Story: Als Benutzer möchte ich den Taschenrechner schnell aufrufen können, um mein Resultat schnell zu bekommen
@@ -18,4 +36,4 @@ Akzeptanzkriterien:
 Status:
 	- Implementiert
 	- getestet
-erledigt
+	- erledigt

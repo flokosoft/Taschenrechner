@@ -17,7 +17,7 @@ namespace Taschenrechner
             Console.Write("Bitte gib den zweiten Summanden ein: ");
             string strZahlZwei = Console.ReadLine();
 
-            //Wandel Text in Ganzzahl
+            //Wandel Text in Gleitkommazahl
             float flZahlEins = Convert.ToSingle(strZahlEins);
             float flZahlZwei = Convert.ToSingle(strZahlZwei);
 
