@@ -13,6 +13,7 @@ namespace Taschenrechner
         {
             this.model = model;
             BenutzerWillBeenden = false;
+            ErneuteRechnung = false;
         }
 
         public bool BenutzerWillBeenden { get; private set; }
@@ -32,7 +33,6 @@ namespace Taschenrechner
                 model.ErsteZahl = model.Ergebnis;
                 model.ZweiteZahl = HoleZahlVomBenutzer();
             }
-
         }
         private double HoleZahlVomBenutzer()
         {
