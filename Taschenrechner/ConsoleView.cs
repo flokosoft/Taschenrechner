@@ -12,19 +12,40 @@ namespace Taschenrechner
         public ConsoleView(RechnerModel model)
         {
             this.model = model;
+            BenutzerWillBeenden = false;
         }
+
+        public bool BenutzerWillBeenden { get; private set; }
+        public bool ErneuteRechnung { get; private set; }
 
         public void HoleEingabenVonBenutzer()
         {
-            model.ErsteZahl = HoleZahlVomBenutzer();
-            model.RechenOperator = HoleOperatorVomBenutzer();
-            model.ZweiteZahl = HoleZahlVomBenutzer();
+            if (!ErneuteRechnung)
+            {
+                model.ErsteZahl = HoleZahlVomBenutzer();
+                model.RechenOperator = HoleOperatorVomBenutzer();
+                model.ZweiteZahl = HoleZahlVomBenutzer();
+                ErneuteRechnung = true;
+            }
+            else 
+            {
+                model.ErsteZahl = model.Ergebnis;
+                model.ZweiteZahl = HoleZahlVomBenutzer();
+            }
+
         }
         private double HoleZahlVomBenutzer()
         {
-            Console.Write("Bitte gib die erste Zahl ein: ");
+            string strEingabe;
+            Console.Write("Bitte gib eine Zahl ein (Zum Beenden: Beenden): ");
+            strEingabe = Console.ReadLine();
+            if (strEingabe == "Beenden")
+            {
+                BenutzerWillBeenden = true;
+                strEingabe = "0";
+            }
 
-            return Convert.ToDouble(Console.ReadLine());
+            return Convert.ToDouble(strEingabe);
         }
         private string HoleOperatorVomBenutzer()
         {

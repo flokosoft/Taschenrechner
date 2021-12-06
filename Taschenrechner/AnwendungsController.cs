@@ -19,14 +19,14 @@ namespace Taschenrechner
 
         public void Ausfuehren()
         {
-            view.HoleEingabenVonBenutzer();
+            while (!view.BenutzerWillBeenden)
+            {
+                view.HoleEingabenVonBenutzer();
+                model.Berechne();
 
-            //Berechnung ausführen 
-
-            model.Berechne();
-
-            //Ausgabe
-            view.GebeWertAus();
+                //Ausgabe
+                view.GebeWertAus();
+            }
             view.WarteAufEndeDurchBenutzer();
         }
     }
