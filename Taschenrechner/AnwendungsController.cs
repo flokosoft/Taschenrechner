@@ -17,15 +17,13 @@ namespace Taschenrechner
             this.model = model;
         }
 
-        public void Ausfueren()
+        public void Ausfuehren()
         {
-            double dblZahlEins = view.HoleZahlVomBenutzer();
-            string strRechenOperator = view.HoleOperatorVomBenutzer();
-            double dblZahlZwei = view.HoleZahlVomBenutzer();
+            view.HoleEingabenVonBenutzer();
 
             //Berechnung ausführen 
 
-            model.Berechne(strRechenOperator, dblZahlEins, dblZahlZwei);
+            model.Berechne();
 
             //Ausgabe
             view.GebeWertAus();

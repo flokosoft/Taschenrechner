@@ -14,13 +14,19 @@ namespace Taschenrechner
             this.model = model;
         }
 
-        public double HoleZahlVomBenutzer()
+        public void HoleEingabenVonBenutzer()
+        {
+            model.ErsteZahl = HoleZahlVomBenutzer();
+            model.RechenOperator = HoleOperatorVomBenutzer();
+            model.ZweiteZahl = HoleZahlVomBenutzer();
+        }
+        private double HoleZahlVomBenutzer()
         {
             Console.Write("Bitte gib die erste Zahl ein: ");
 
             return Convert.ToDouble(Console.ReadLine());
         }
-        public string HoleOperatorVomBenutzer()
+        private string HoleOperatorVomBenutzer()
         {
             Console.WriteLine("Wähle für\n+ = 1 \n- = 2\n* = 3\n/ = 4");
 
@@ -38,19 +44,19 @@ namespace Taschenrechner
             switch (model.RechenOperator)
             {
                 case "1":
-                    Console.WriteLine("Die Summe ist: {0}", model.dblErgebnis);
+                    Console.WriteLine("Die Summe ist: {0}", model.Ergebnis);
                     break;
 
                 case "2":
-                    Console.WriteLine("Die Differenz ist: {0}", model.dblErgebnis);
+                    Console.WriteLine("Die Differenz ist: {0}", model.Ergebnis);
                     break;
 
                 case "3":
-                    Console.WriteLine("Das Produkt ist: {0}", model.dblErgebnis);
+                    Console.WriteLine("Das Produkt ist: {0}", model.Ergebnis);
                     break;
 
                 case "4":
-                    Console.WriteLine("Der Quotient ist: {0}", model.dblErgebnis);
+                    Console.WriteLine("Der Quotient ist: {0}", model.Ergebnis);
                     break;
 
 

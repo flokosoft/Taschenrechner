@@ -8,12 +8,13 @@ namespace Taschenrechner
 {
     class RechnerModel
     {
-        public double dblErgebnis { get; private set; }
-        public string RechenOperator { get; private set; }
+        public double Ergebnis { get; private set; }
+        public string RechenOperator { get; set; }
+        public double ErsteZahl { get; set; }
+        public double ZweiteZahl { get; set; }
 
         public RechnerModel()
         {
-            dblErgebnis = 0;
             RechenOperator = "unbekannt";
         }
 
@@ -45,29 +46,29 @@ namespace Taschenrechner
             return dblQuotient;
         }
 
-        public void Berechne(string strRechenOperator, double ersteZahl, double zweiteZahl)
+        public void Berechne()
         {
-            this.RechenOperator = strRechenOperator;
-            switch (strRechenOperator)
+            this.RechenOperator = RechenOperator;
+            switch (RechenOperator)
             {
                 case "1":
-                    dblErgebnis = Addiere(ersteZahl, zweiteZahl);
+                    Ergebnis = Addiere(ErsteZahl, ZweiteZahl);
                     break;
 
                 case "2":
-                    dblErgebnis = Subtrahieren(ersteZahl, zweiteZahl);
+                    Ergebnis = Subtrahieren(ErsteZahl, ZweiteZahl);
                     break;
 
                 case "3":
-                    dblErgebnis = Multiplizieren(ersteZahl, zweiteZahl);
+                    Ergebnis = Multiplizieren(ErsteZahl, ZweiteZahl);
                     break;
 
                 case "4":
-                    dblErgebnis = Dividieren(ersteZahl, zweiteZahl);
+                    Ergebnis = Dividieren(ErsteZahl, ZweiteZahl);
                     break;
 
                 default:
-                    dblErgebnis = 0;
+                    Ergebnis = 0;
                     break;
             }
         }
