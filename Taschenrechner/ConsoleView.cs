@@ -37,11 +37,15 @@ namespace Taschenrechner
         private double HoleZahlVomBenutzer()
         {
             string strEingabe;
-            Console.Write("Bitte gib eine Zahl ein (Zum Beenden: Beenden): ");
-            strEingabe = Console.ReadLine();
-            if (strEingabe == "Beenden")
+            Console.Write("Bitte gib eine Zahl ein (Zum Beenden: exit): ");
+            strEingabe = Console.ReadLine().ToLower();            
+            if (strEingabe == "exit")
             {
                 BenutzerWillBeenden = true;
+                strEingabe = "0";
+            }
+            else if (strEingabe == "")
+            {
                 strEingabe = "0";
             }
 
@@ -49,9 +53,15 @@ namespace Taschenrechner
         }
         private string HoleOperatorVomBenutzer()
         {
-            Console.WriteLine("Wähle für\n+ = 1 \n- = 2\n* = 3\n/ = 4");
+            string strOperator;
+            Console.WriteLine("Wähle für\n+ = 1 (Standard)\n- = 2\n* = 3\n/ = 4");
+            strOperator = Console.ReadLine();
+            if (strOperator != "1" || strOperator != "2" || strOperator != "3" || strOperator != "4")
+            {
+                strOperator = "1";
+            }
 
-            return Console.ReadLine();
+            return strOperator;
         }
 
         public void WarteAufEndeDurchBenutzer()
